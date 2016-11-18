@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<constant name="struts.objectFactory" value="spring"></constant>   <!-- 用Spring提供的工厂 -->
+	<package name="default" extends="struts-default">
+		<!-- 登录 -->
+		<action name="login" class="UserAction" method="login">		
+			<result name="ULS">/index.jsp</result>
+			<result name="ULF" type="redirect">/login.jsp?role=user</result>
+			<result name="ALS">/index.jsp</result>
+			<result name="ALF" type="redirect">/login.jsp?role=admin</result>
+		</action>
+		
+		<!-- 注册 -->
+		<action name="register" class="UserAction" method="register">
+			<result name="URS">/login.jsp?role=user</result>
+			<result name="URF" type="redirect">/register.jsp?role=user</result>
+			<result name="ARS">/login.jsp?role=admin</result>
+			<result name="ARF" type="redirect">/register.jsp?role=admin</result>
+		</action>
+		
+		<!-- 注销 -->
+		<action name="logout" class="UserAction" method="logout">
+			<result name="index">/index.jsp</result>
+		</action>
+		
+		<!-- 修改个人信息（密码） -->
+		<action name="modifyinfo" class="UserAction" method="modifyInfo">
+			<result name="userlogin" type="redirect">/login.jsp?role=user</result>
+			<result name="adminlogin" type="redirect">/login.jsp?role=admin</result>
+		</action>
+		
+		<!-- 添加商品 -->
+		<action name="addgoods" class="GoodsAction" method="addGoods">
+			<result name="goodsmanage" >/goodsmanage.jsp</result>
+		</action>
+		
+		<!-- 管理商品 -->
+		<action name="goodsmanage" class="GoodsAction" method="goodsManage">
+			<result name="goodsmanage" >/goodsmanage.jsp</result>
+		</action>
+	</package>
+</struts>    
