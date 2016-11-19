@@ -31,7 +31,7 @@ public class GoodsDaoImpl implements GoodsDao {
 	}
 
 	@Override
-	public void updateGoods(Goods goods) {
+	public void modifyGoods(Goods goods) {
 		// TODO Auto-generated method stub
 		Session session=sessionFactory.openSession();
 		session.clear();
@@ -81,6 +81,19 @@ public class GoodsDaoImpl implements GoodsDao {
 		return list;
 	}
 
+	@Override
+	public List GoodsById(Goods goods) {
+		// TODO Auto-generated method stub
+		List list=null;
+		Session session=sessionFactory.openSession();
+		session.clear();
+		Transaction trans=session.beginTransaction();
+		Query query=session.createQuery("from Goods as goods where goods.goodsId='"+goods.getGoodsId()+"'");
+		list=query.list();
+		trans.commit();
+		session.close();
+		return list;
+	}
 
 
 }

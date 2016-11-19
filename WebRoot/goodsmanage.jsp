@@ -13,7 +13,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<%@taglib prefix="s" uri="/struts-tags"%>
 		<s:if test="#session.admin!=null">
 			<div align="center">
-	    	    |<a href="index.jsp">商城首页</a>
+	    	    |<a href="/javaee_exam1/showgoods">商城首页</a>
 		    	|<a href="modifyInfo.jsp?role=admin">修改个人信息</a>
 		    	|<a href="addgoods.jsp">添加商品</a>
 		    	|<a href="">用户管理</a>
@@ -40,6 +40,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			 </form>  
 		    <table width="50%" cellspacing="0" cellpadding="3" align="center" style="text-align:center; border:1px #9c2e41 solid;">
 		    	<tr style="background-color:#d9f1f2;">
+		    		<td>商品编号</td>
 		    		<td>商品名</td>
 		    		<td>商品价格（￥）</td>
 		    		<td>修改</td>
@@ -50,17 +51,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		    	<s:iterator id="goodsItem" value="#request.goodsList" status="st">
 		    		<s:if test="#st.odd==true">
 		    			<tr style="background-color:#f1e0b3;">
+		    				<td><s:property value="goodsId" /></td>
 		    				<td><s:property value="goodsName" /></td>
 		    				<td><s:property value="goodsPrice" /></td>
-		    				<td><a href="/javaee_exam1/updategoods?goods.goodsId=${goodsItem.goodsId} }">修改</a></td>
+		    				<td><a href="/javaee_exam1/modifygoodsinfo?goods.goodsId=${goodsItem.goodsId} }">修改</a></td>
 		    				<td><a href="/javaee_exam1/deletegoods?goods.goodsId=${goodsItem.goodsId} }">删除</a></td>
 		    			</tr>
 		    		</s:if>	
 		    		<s:else>
 		    			<tr style="background-color:#d9f1f2;">
+		    				<td><s:property value="goodsId" /></td>
 		    				<td><s:property value="goodsName" /></td>
 		    				<td><s:property value="goodsPrice" /></td>
-		    				<td><a href="/javaee_exam1/updategoods?goods.goodsId=${goodsItem.goodsId} }">修改</a></td>
+		    				<td><a href="/javaee_exam1/modifygoodsinfo?goods.goodsId=${goodsItem.goodsId} }">修改</a></td>
 		    				<td><a href="/javaee_exam1/deletegoods?goods.goodsId=${goodsItem.goodsId} }">删除</a></td>
 		    			</tr>
 		    		</s:else>

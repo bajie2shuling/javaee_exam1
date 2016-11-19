@@ -13,7 +13,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<%@taglib prefix="s" uri="/struts-tags"%>
 		<s:if test="#session.admin!=null">		
 	    	<div align="center">
-	    	    |<a href="index.jsp">商城首页</a>
+	    	    |<a href="/javaee_exam1/showgoods">商城首页</a>
 		    	|<a href="modifyInfo.jsp?role=admin">修改个人信息</a>
 		    	|<a href="">商品管理</a>
 		    	|<a href="">用户管理</a>

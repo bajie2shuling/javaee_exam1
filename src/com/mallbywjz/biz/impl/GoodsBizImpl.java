@@ -21,9 +21,9 @@ public class GoodsBizImpl implements GoodsBiz {
 	}
 
 	@Override
-	public void updateGoods(Goods goods) {
+	public void modifyGoods(Goods goods) {
 		// TODO Auto-generated method stub
-		goodsDao.updateGoods(goods);
+		goodsDao.modifyGoods(goods);
 	}
 
 	@Override
@@ -42,6 +42,12 @@ public class GoodsBizImpl implements GoodsBiz {
 	public List GoodsBySelect(Goods goods) {
 		// TODO Auto-generated method stub
 		return goodsDao.GoodsBySelect(goods);
+	}
+
+	@Override
+	public List GoodsById(Goods goods) {
+		// TODO Auto-generated method stub
+		return goodsDao.GoodsById(goods);
 	}
 
 }

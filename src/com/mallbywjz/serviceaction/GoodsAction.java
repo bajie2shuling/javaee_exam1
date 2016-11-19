@@ -57,4 +57,55 @@ public class GoodsAction extends ActionSupport implements RequestAware{
 		request.put("goodsList", goodsList);
 		return "goodsmanage";
 	}
+	
+	public String goodsById()throws Exception{  //通过商品Id查找商品
+		List goodsList=null;
+		goodsList=goodsBiz.GoodsById(goods);		
+		request.put("goodsList", goodsList);
+		
+		return "goodsmanage";
+	}
+	
+	public String showGoods()throws Exception{		//展示商品
+		
+		List goodsList=null;
+		if(goods != null){
+			goodsList=goodsBiz.GoodsBySelect(goods);
+			if(goods.getGoodsName() != null && !goods.getGoodsName().equals("")){
+				request.put("goodsName",goods.getGoodsName());
+			}
+		}else{
+			goodsList=goodsBiz.AllGoods();
+		}
+		
+		request.put("goodsList", goodsList);
+		return "showgoods";
+	}
+	
+	public String modifyGoodsInfo()throws Exception{		//获取修改商品信息
+		List goodsList=null;
+
+		goodsList=goodsBiz.GoodsById(goods);		
+		request.put("goodsList", goodsList);
+		
+		return "modifygoodsinfo";
+	}
+	
+	public String modifyGoods()throws Exception{		//修改商品信息
+		
+		List goodsList=null;
+		
+		goodsBiz.modifyGoods(goods);
+		goodsList=goodsBiz.GoodsById(goods);		//获取修改后的信息
+		
+		request.put("goodsList", goodsList);
+		return "goodsmanage";
+	}
+	
+	public String deleteGoods()throws Exception{		//删除商品
+		
+		goodsBiz.deleteGoods(goods);
+		return "goodsmanage";
+	}
 }
+

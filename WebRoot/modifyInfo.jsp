@@ -10,7 +10,7 @@
      <%@taglib prefix="s" uri="/struts-tags"%>
     <s:if test="#parameters.role[0]=='user'">
     	<div align="center">
-	    	|<a href="index.jsp">商城首页</a>
+	    	|<a href="/javaee_exam1/showgoods">商城首页</a>
 	    	|<a href="login.jsp?role=admin">管理员登录</a>
 	    	|<a href="register.jsp?role=admin">管理员注册</a>
 	    	|
@@ -51,7 +51,7 @@
     </s:if>
     <s:if test="#parameters.role[0]=='admin'">
 	    <div align="center">
-		    |<a href="index.jsp">商城首页</a>
+		    |<a href="/javaee_exam1/showgoods">商城首页</a>
 		    |<a href="login.jsp?role=user">用户登录</a>
 		    |<a href="register.jsp?role=user">用户注册</a>
 		    |

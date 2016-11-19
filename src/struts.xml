@@ -5,23 +5,23 @@
 	<package name="default" extends="struts-default">
 		<!-- 登录 -->
 		<action name="login" class="UserAction" method="login">		
-			<result name="ULS">/index.jsp</result>
+			<result name="ULS" type="redirect">showgoods</result>
 			<result name="ULF" type="redirect">/login.jsp?role=user</result>
-			<result name="ALS">/index.jsp</result>
+			<result name="ALS" type="redirect">showgoods</result>
 			<result name="ALF" type="redirect">/login.jsp?role=admin</result>
 		</action>
 		
 		<!-- 注册 -->
 		<action name="register" class="UserAction" method="register">
-			<result name="URS">/login.jsp?role=user</result>
+			<result name="URS" type="redirect">/login.jsp?role=user</result>
 			<result name="URF" type="redirect">/register.jsp?role=user</result>
-			<result name="ARS">/login.jsp?role=admin</result>
+			<result name="ARS" type="redirect">/login.jsp?role=admin</result>
 			<result name="ARF" type="redirect">/register.jsp?role=admin</result>
 		</action>
 		
 		<!-- 注销 -->
 		<action name="logout" class="UserAction" method="logout">
-			<result name="index">/index.jsp</result>
+			<result name="index" type="redirect">showgoods</result>
 		</action>
 		
 		<!-- 修改个人信息（密码） -->
@@ -39,5 +39,31 @@
 		<action name="goodsmanage" class="GoodsAction" method="goodsManage">
 			<result name="goodsmanage" >/goodsmanage.jsp</result>
 		</action>
+		
+		<!-- 通过商品Id查找商品 -->
+		<action name="goodsbyid" class="GoodsAction" method="goodsById">
+			<result name="goodsmanage" >/goodsmanage.jsp</result>
+		</action>
+		
+		<!-- 首页展示商品 -->
+		<action name="showgoods" class="GoodsAction" method="showGoods">
+			<result name="showgoods" >/mall.jsp</result>
+		</action>
+		
+		<!-- 获取修改商品信息 -->
+		<action name="modifygoodsinfo" class="GoodsAction" method="modifyGoodsInfo">
+			<result name="modifygoodsinfo" >/modifygoodsinfo.jsp</result>
+		</action>
+		
+		<!-- 修改商品 -->
+		<action name="modifygoods" class="GoodsAction" method="modifyGoods">
+			<result name="goodsmanage" >/goodsmanage.jsp</result>
+		</action>
+		
+		<!-- 删除商品 -->
+		<action name="deletegoods" class="GoodsAction" method="deleteGoods">
+			<result name="goodsmanage" type="redirect">goodsmanage</result>
+		</action>
+		
 	</package>
 </struts>    
