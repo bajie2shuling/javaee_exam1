@@ -5,9 +5,9 @@
 	<package name="default" extends="struts-default">
 		<!-- 登录 -->
 		<action name="login" class="UserAction" method="login">		
-			<result name="ULS" type="redirect">showgoods</result>
+			<result name="ULS" type="redirectAction">showgoods</result>
 			<result name="ULF" type="redirect">/login.jsp?role=user</result>
-			<result name="ALS" type="redirect">showgoods</result>
+			<result name="ALS" type="redirectAction">showgoods</result>
 			<result name="ALF" type="redirect">/login.jsp?role=admin</result>
 		</action>
 		
@@ -21,7 +21,7 @@
 		
 		<!-- 注销 -->
 		<action name="logout" class="UserAction" method="logout">
-			<result name="index" type="redirect">showgoods</result>
+			<result name="index" type="redirectAction">showgoods</result>
 		</action>
 		
 		<!-- 修改个人信息（密码） -->
@@ -32,7 +32,7 @@
 		
 		<!-- 添加商品 -->
 		<action name="addgoods" class="GoodsAction" method="addGoods">
-			<result name="goodsmanage" >/goodsmanage.jsp</result>
+			<result name="goodsmanage" type="redirectAction">goodsmanage</result>
 		</action>
 		
 		<!-- 管理商品 -->
@@ -52,7 +52,7 @@
 		
 		<!-- 获取修改商品信息 -->
 		<action name="modifygoodsinfo" class="GoodsAction" method="modifyGoodsInfo">
-			<result name="modifygoodsinfo" >/modifygoodsinfo.jsp</result>
+			<result name="modifygoodsinfo">/modifygoodsinfo.jsp</result>
 		</action>
 		
 		<!-- 修改商品 -->
@@ -62,7 +62,7 @@
 		
 		<!-- 删除商品 -->
 		<action name="deletegoods" class="GoodsAction" method="deleteGoods">
-			<result name="goodsmanage" type="redirect">goodsmanage</result>
+			<result name="goodsmanage" type="redirectAction">goodsmanage</result>
 		</action>
 		
 	</package>

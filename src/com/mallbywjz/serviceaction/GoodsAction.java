@@ -86,7 +86,7 @@ public class GoodsAction extends ActionSupport implements RequestAware{
 		List goodsList=null;
 
 		goodsList=goodsBiz.GoodsById(goods);		
-		request.put("goodsList", goodsList);
+		request.put("goods", goodsList.get(0));
 		
 		return "modifygoodsinfo";
 	}
@@ -97,7 +97,7 @@ public class GoodsAction extends ActionSupport implements RequestAware{
 		
 		goodsBiz.modifyGoods(goods);
 		goodsList=goodsBiz.GoodsById(goods);		//获取修改后的信息
-		
+	
 		request.put("goodsList", goodsList);
 		return "goodsmanage";
 	}

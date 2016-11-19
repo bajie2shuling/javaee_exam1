@@ -31,7 +31,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								商品编号：
 							</td>
 							<td align="left">							    
-								<input type="text" name="admin.adminId" style="width:220px;" value="${requestScope.goods.goodsId }" readonly="readonly" />									
+								<input type="text" name="goods。goodsId" style="width:220px;" value="${requestScope.goods.goodsId }" readonly="readonly" />									
 							</td>
 						</tr>
 						<tr>
@@ -39,7 +39,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								商  品  名：
 							</td>
 							<td align="left">
-								<input type="password" name="admin.pwd" style="width:220px;"  value="${requestScope.goods.goodsName }"/>									
+								<input type="text" name="goods.goodsName" style="width:220px;"  value="${requestScope.goods.goodsName }"/>									
 							</td>
 						</tr>
 						<tr>
@@ -47,7 +47,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								商品价格：
 							</td>
 							<td align="left">
-								<input type="password" name="admin.pwd" style="width:220px;" value="${requestScope.goods.goodsPrice }" />									
+								<input type="text" name="goods.goodsPrice" style="width:220px;" value="${requestScope.goods.goodsPrice }" />									
 							</td>
 						</tr>
 						<tr style="background-color:#9c2e41;">

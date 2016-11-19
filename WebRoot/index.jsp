@@ -10,7 +10,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<head>
 	<title>欢迎光临</title>
 		<meta http-equiv="description" content="This is my page">
-		<meta http-equiv="refresh" content="3;URL=/javaee_exam1/showgoods" content="text/html; charset=utf-8">
+		<meta http-equiv="refresh" content="2;URL=/javaee_exam1/showgoods" content="text/html; charset=utf-8">
 	</head>
 	<body>
 		<center><h1>欢迎光临吴晋子的商城</h1></center>
