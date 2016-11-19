@@ -45,9 +45,15 @@ public class GoodsBizImpl implements GoodsBiz {
 	}
 
 	@Override
-	public List GoodsById(Goods goods) {
+	public Goods GoodsByIdG(Goods goods) {
 		// TODO Auto-generated method stub
-		return goodsDao.GoodsById(goods);
+		return goodsDao.GoodsByIdG(goods);
+	}
+
+	@Override
+	public List GoodsByIdL(Goods goods) {
+		// TODO Auto-generated method stub
+		return goodsDao.GoodsByIdL(goods);
 	}
 
 }

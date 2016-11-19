@@ -81,5 +81,11 @@
 			<ref bean="GoodsBiz"/>
 		</property>
 	</bean>
-	
+<!-- ShopCar -->
+	<bean name="SCarAction" class="com.mallbywjz.serviceaction.SCarAction">
+		<property name="goodsBiz">
+			<ref bean="GoodsBiz"/>
+		</property>
+	</bean>
+
 	</beans>

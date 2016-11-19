@@ -82,7 +82,21 @@ public class GoodsDaoImpl implements GoodsDao {
 	}
 
 	@Override
-	public List GoodsById(Goods goods) {
+	public Goods GoodsByIdG(Goods goods) {
+		// TODO Auto-generated method stub
+		List list=null;
+		Session session=sessionFactory.openSession();
+		session.clear();
+		Transaction trans=session.beginTransaction();
+		Query query=session.createQuery("from Goods as goods where goods.goodsId='"+goods.getGoodsId()+"'");
+		list=query.list();
+		trans.commit();
+		session.close();
+		return (Goods)list.get(0);
+	}
+
+	@Override
+	public List GoodsByIdL(Goods goods) {
 		// TODO Auto-generated method stub
 		List list=null;
 		Session session=sessionFactory.openSession();
@@ -95,5 +109,6 @@ public class GoodsDaoImpl implements GoodsDao {
 		return list;
 	}
 
+	
 
 }

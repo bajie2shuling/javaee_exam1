@@ -41,7 +41,7 @@
 		</action>
 		
 		<!-- 通过商品Id查找商品 -->
-		<action name="goodsbyid" class="GoodsAction" method="goodsById">
+		<action name="goodsbyid" class="GoodsAction" method="goodsByIdG">
 			<result name="goodsmanage" >/goodsmanage.jsp</result>
 		</action>
 		
@@ -65,5 +65,29 @@
 			<result name="goodsmanage" type="redirectAction">goodsmanage</result>
 		</action>
 		
+		<!-- 添加商品到购物车 -->
+		<action name="addtoscar" class="SCarAction" method="addToScar">
+			<result name="showcar" >/showcar.jsp</result>
+		</action>
+		
+		<!-- 在购物车中增加商品数量 -->
+		<action name="additemnum" class="SCarAction" method="addItemNum">
+			<result name="showcar" >/showcar.jsp</result>
+		</action>
+		
+		<!-- 在购物车中减少商品数量 -->
+		<action name="reduceitemnum" class="SCarAction" method="reduceItemNum">
+			<result name="showcar" >/showcar.jsp</result>
+		</action>
+		
+		<!-- 移除购物车中某种商品 -->
+		<action name="deleteitem" class="SCarAction" method="deleteItem">
+			<result name="showcar" >/showcar.jsp</result>
+		</action>
+		
+		<!-- 清空购物车 -->
+		<action name="clearcar" class="SCarAction" method="clearCar">
+			<result name="showcar" >/showcar.jsp</result>
+		</action>
 	</package>
 </struts>    

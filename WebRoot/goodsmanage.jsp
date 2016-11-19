@@ -30,7 +30,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			    			输入商品名
 			    		</td>
 			    		<td align="left">
-			    			<input type="text" name="goods.goodsName" style="width:220px;" value="${requestScope.goodsName} " />
+			    			<input type="text" name="goods.goodsName" style="width:220px;" />
 			    		</td>
 			    		<td align="left">
 			    			<input type="submit" value="查询"/>
