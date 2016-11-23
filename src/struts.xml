@@ -89,5 +89,30 @@
 		<action name="clearcar" class="SCarAction" method="clearCar">
 			<result name="showcar" >/showcar.jsp</result>
 		</action>
+		
+		<!-- 生成订单 -->
+		<action name="addorder" class="OrderAction" method="addOrder">
+			<result name="showuserorders" type="redirectAction">userseeorders</result>
+		</action>
+		
+		<!-- 管理员查看所有订单 -->
+		<action name="seeallorders" class="OrderAction" method="seeAllOrders">
+			<result name="showorders">/order.jsp</result>
+		</action>
+		
+		<!-- 用户查看订单 -->
+		<action name="userseeorders" class="OrderAction" method="userSeeOrders">
+			<result name="showuserorders">/userorders.jsp</result>
+		</action>
+		
+		<!-- 查看订单详情 -->
+		<action name="seeorderdt" class="OrderAction" method="seeOrderDt">
+			<result name="showorderdt">/orderdetial.jsp</result>
+		</action>
+		
+		<!-- 审核订单 -->
+		<action name="changestate" class="OrderAction" method="changeState">
+			<result name="showorders" type="redirectAction">seeallorders</result>
+		</action>
 	</package>
 </struts>    

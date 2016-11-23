@@ -111,7 +111,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<a href="/javaee_exam1/showgoods">继续购物</a>
 				</td>
 				<td>
-					<a href="">生成订单</a>
+					<a href="/javaee_exam1/addorder">生成订单</a>
 				</td>
 	    	</tr>
 	    </table> 	

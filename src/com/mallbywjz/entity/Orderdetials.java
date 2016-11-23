@@ -20,12 +20,6 @@ public class Orderdetials implements java.io.Serializable {
 	public Orderdetials() {
 	}
 
-	/** minimal constructor */
-	public Orderdetials(Goods goods, Orders orders) {
-		this.goods = goods;
-		this.orders = orders;
-	}
-
 	/** full constructor */
 	public Orderdetials(Goods goods, Orders orders, Double goodsPrice,
 			Integer goodsCount) {

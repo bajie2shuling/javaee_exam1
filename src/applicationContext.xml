@@ -81,10 +81,46 @@
 			<ref bean="GoodsBiz"/>
 		</property>
 	</bean>
+	
 <!-- ShopCar -->
 	<bean name="SCarAction" class="com.mallbywjz.serviceaction.SCarAction">
 		<property name="goodsBiz">
 			<ref bean="GoodsBiz"/>
+		</property>
+	</bean>
+
+<!-- OrderDetial -->
+	<bean name="OrderDtDao" class="com.mallbywjz.dao.impl.OrderDtDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+	</bean>
+	
+	<bean name="OrderDtBiz" class="com.mallbywjz.biz.impl.OrderDtBizImpl">
+		<property name="orderDtDao">
+			<ref bean="OrderDtDao"/>
+		</property>
+	</bean>
+	
+<!-- orders -->	
+	<bean name="OrdersDao" class="com.mallbywjz.dao.impl.OrdersDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+	</bean>
+	
+	<bean name="OrdersBiz" class="com.mallbywjz.biz.impl.OrdersBizImpl">
+		<property name="ordersDao">
+			<ref bean="OrdersDao"/>
+		</property>
+	</bean>
+	
+	<bean name="OrderAction" class="com.mallbywjz.serviceaction.OrderAction">
+		<property name="orderDtBiz">
+			<ref bean="OrderDtBiz"/>
+		</property>
+		<property name="ordersBiz">
+			<ref bean="OrdersBiz"/>
 		</property>
 	</bean>
 

@@ -13,7 +13,7 @@
     	    |<a href="/javaee_exam1/showgoods">商城首页</a>
 	    	|<a href="modifyInfo.jsp?role=user">修改个人信息</a>
 	    	|<a href="showcar.jsp">我的购物车</a>
-	    	|<a href="">我的订单</a>
+	    	|<a href="/javaee_exam1/userseeorders">我的订单</a>
 	    	|<a href="/javaee_exam1/logout?type=user">注销</a>
 	    	|
 			<font style="color: red">欢迎您：${sessionScope.user.userId}</font>
@@ -68,7 +68,7 @@
 	    	|<a href="modifyInfo.jsp?role=admin">修改个人信息</a>
 	    	|<a href="/javaee_exam1/goodsmanage">商品管理</a>
 	    	|<a href="">用户管理</a>
-	    	|<a href="">订单管理</a>
+	    	|<a href="/javaee_exam1/seeallorders">订单管理</a>
 	    	|<a href="/javaee_exam1/logout?type=admin">注销</a>
 	    	|
 			<font style="color: red">管理员：${sessionScope.admin.adminId }</font>

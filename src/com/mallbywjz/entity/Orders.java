@@ -1,6 +1,6 @@
 package com.mallbywjz.entity;
 
-import java.sql.Timestamp;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -14,7 +14,7 @@ public class Orders implements java.io.Serializable {
 
 	private Integer orderId;
 	private Users users;
-	private Timestamp orderTime;
+	private Date orderTime;
 	private String orderState;
 	private Double orderTotalPrice;
 	private Set orderdetialses = new HashSet(0);
@@ -26,7 +26,7 @@ public class Orders implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Orders(Users users, Timestamp orderTime, String orderState,
+	public Orders(Users users, Date orderTime, String orderState,
 			Double orderTotalPrice, Set orderdetialses) {
 		this.users = users;
 		this.orderTime = orderTime;
@@ -53,11 +53,11 @@ public class Orders implements java.io.Serializable {
 		this.users = users;
 	}
 
-	public Timestamp getOrderTime() {
+	public Date getOrderTime() {
 		return this.orderTime;
 	}
 
-	public void setOrderTime(Timestamp orderTime) {
+	public void setOrderTime(Date orderTime) {
 		this.orderTime = orderTime;
 	}
 
