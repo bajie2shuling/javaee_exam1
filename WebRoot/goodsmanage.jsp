@@ -45,6 +45,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		    		<td>商品价格（￥）</td>
 		    		<td>修改</td>
 		    		<td>删除</td>
+		    		<td>查看销量</td>
 		    	</tr>
 		    	
 		    	<!-- 迭代商品 -->
@@ -56,6 +57,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		    				<td><s:property value="goodsPrice" /></td>
 		    				<td><a href="/javaee_exam1/modifygoodsinfo?goods.goodsId=${goodsItem.goodsId}">修改</a></td>
 		    				<td><a href="/javaee_exam1/deletegoods?goods.goodsId=${goodsItem.goodsId}">删除</a></td>
+		    				<td><a href="/javaee_exam1/getgoodscount?goods.goodsId=${goodsItem.goodsId}">查看销量</a></td>
 		    			</tr>
 		    		</s:if>	
 		    		<s:else>
@@ -65,6 +67,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		    				<td><s:property value="goodsPrice" /></td>
 		    				<td><a href="/javaee_exam1/modifygoodsinfo?goods.goodsId=${goodsItem.goodsId}">修改</a></td>
 		    				<td><a href="/javaee_exam1/deletegoods?goods.goodsId=${goodsItem.goodsId}">删除</a></td>
+		    				<td><a href="/javaee_exam1/getgoodscount?goods.goodsId=${goodsItem.goodsId}">查看销量</a></td>
 		    			</tr>
 		    		</s:else>
 		    	</s:iterator>

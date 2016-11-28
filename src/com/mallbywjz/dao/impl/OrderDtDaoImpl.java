@@ -42,4 +42,22 @@ public class OrderDtDaoImpl implements OrderDtDao {
 		return list;
 	}
 
+	@Override
+	public int getGoodsCount(int gid) {
+		// TODO Auto-generated method stub
+		List list=null;
+		int goodsCount=0;
+		long count=0;
+		Session session=sessionFactory.openSession();
+		session.clear();
+		Transaction trans=session.beginTransaction();
+		Query query=session.createQuery("select sum(odt.goodsCount) as count from Orderdetials as odt where odt.goods.goodsId='"+gid+"' group by odt.goods.goodsId");
+		list=query.list();
+		trans.commit();
+		session.close();
+		count=(Long) list.get(0);
+		goodsCount=(int) count;
+		return goodsCount;
+	}
+
 }

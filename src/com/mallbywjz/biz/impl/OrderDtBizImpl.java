@@ -26,4 +26,10 @@ public class OrderDtBizImpl implements OrderDtBiz {
 		return orderDtDao.getOrderDtsByOid(oid);
 	}
 
+	@Override
+	public int getGoodsCount(int gid) {
+		// TODO Auto-generated method stub
+		return orderDtDao.getGoodsCount(gid);
+	}
+
 }

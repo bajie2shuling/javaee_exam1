@@ -9,8 +9,10 @@ import java.util.Map;
 import org.apache.struts2.interceptor.RequestAware;
 import org.apache.struts2.interceptor.SessionAware;
 
+import com.mallbywjz.biz.GoodsBiz;
 import com.mallbywjz.biz.OrderDtBiz;
 import com.mallbywjz.biz.OrdersBiz;
+import com.mallbywjz.entity.Goods;
 import com.mallbywjz.entity.Orderdetials;
 import com.mallbywjz.entity.Orders;
 import com.mallbywjz.entity.SCarItem;
@@ -22,9 +24,11 @@ public class OrderAction extends ActionSupport implements RequestAware,SessionAw
 	private static final long serialVersionUID = 1L;
 
 	private Orders orders;
-	private int oid;
+	private Goods goods;
+	private int oid;//¶©µ¥±àºÅ
 	OrderDtBiz orderDtBiz;
 	OrdersBiz ordersBiz;
+	GoodsBiz goodsBiz;
 	
 	Map<String, Object> session;
 	Map<String, Object> request;
@@ -37,6 +41,12 @@ public class OrderAction extends ActionSupport implements RequestAware,SessionAw
 		this.orders = orders;
 	}
 	
+	public Goods getGoods() {
+		return goods;
+	}
+	public void setGoods(Goods goods) {
+		this.goods = goods;
+	}
 	public int getOid() {
 		return oid;
 	}
@@ -55,6 +65,13 @@ public class OrderAction extends ActionSupport implements RequestAware,SessionAw
 	}
 	public void setOrdersBiz(OrdersBiz ordersBiz) {
 		this.ordersBiz = ordersBiz;
+	}
+	
+	public GoodsBiz getGoodsBiz() {
+		return goodsBiz;
+	}
+	public void setGoodsBiz(GoodsBiz goodsBiz) {
+		this.goodsBiz = goodsBiz;
 	}
 	@Override
 	public void setSession(Map<String, Object> session) {
@@ -130,5 +147,16 @@ public class OrderAction extends ActionSupport implements RequestAware,SessionAw
 		request.put("orderDtList", orderDtList);
 		
 		return "showorderdt";
+	}
+	
+	public String getGoodsCount()throws Exception{
+		
+		int goodsCount=0;
+		goods=goodsBiz.GoodsByIdG(goods);
+		goodsCount=orderDtBiz.getGoodsCount(goods.getGoodsId());
+		request.put("goods",goods);
+		request.put("goodsCount",goodsCount);
+		
+		return "showgoodscount";
 	}
 }

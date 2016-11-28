@@ -114,5 +114,10 @@
 		<action name="changestate" class="OrderAction" method="changeState">
 			<result name="showorders" type="redirectAction">seeallorders</result>
 		</action>
+		
+		<!-- 统计商品销量 -->
+		<action name="getgoodscount" class="OrderAction" method="getGoodsCount">
+			<result name="showgoodscount">/showgoodscount.jsp</result>
+		</action>
 	</package>
 </struts>    

@@ -122,6 +122,9 @@
 		<property name="ordersBiz">
 			<ref bean="OrdersBiz"/>
 		</property>
+		<property name="goodsBiz">
+			<ref bean="GoodsBiz"/>
+		</property>
 	</bean>
 
 	</beans>
