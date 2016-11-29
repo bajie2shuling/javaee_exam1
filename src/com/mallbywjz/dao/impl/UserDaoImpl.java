@@ -112,6 +112,45 @@ public class UserDaoImpl implements UserDao {
 		trans.commit();					
 		session.close();
 	}
+
+	@Override
+	public List userBySelect(Users user) {
+		// TODO Auto-generated method stub
+		List list=null;
+		Session session=sessionFactory.openSession();
+		session.clear();
+		Transaction trans=session.beginTransaction();
+		Query query=session.createQuery("from Users as user where user.userId like '%"+user.getUserId()+"%'");
+		list=query.list();
+		trans.commit();
+		session.close();
+		return list;
+	}
+
+	@Override
+	public void deleteUser(Users user) {
+		// TODO Auto-generated method stub
+		Session session=sessionFactory.openSession();
+		session.clear();
+		Transaction trans=session.beginTransaction();
+		session.delete(user);   
+		trans.commit();					
+		session.close();
+	}
+
+	@Override
+	public List allUsers() {
+		// TODO Auto-generated method stub
+		List list=null;
+		Session session=sessionFactory.openSession();
+		session.clear();
+		Transaction trans=session.beginTransaction();
+		Query query=session.createQuery("from Users");
+		list=query.list();
+		trans.commit();
+		session.close();
+		return list;
+	}
 	
 	
 }

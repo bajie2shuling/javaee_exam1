@@ -183,5 +183,31 @@ public class UserAction implements RequestAware, SessionAware {
 		}	
 		return null;	
 	}
-
+	
+	public String showUsers()throws Exception{
+		List userList=null;
+		if(user==null){
+			userList=userBiz.allUsers();
+		}else{
+			userList=userBiz.userBySelect(user);
+		}
+		request.put("userList",userList);
+		
+		return "showusers";
+	}
+	
+	public String deleteUser()throws Exception{
+		userBiz.deleteUser(user);
+		return "showusers";
+	}
+	
+	public String showQueryPage()throws Exception{
+		List userList=null;
+		userList=userBiz.userBySelect(user);
+		Users user1=new Users();
+		user1=(Users)userList.get(0);
+		request.put("user",user);
+		
+		return "showquerypage";
+	}
 }

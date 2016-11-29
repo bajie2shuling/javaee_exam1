@@ -65,7 +65,7 @@ public class OrdersDaoImpl implements OrdersDao {
 		Session session=sessionFactory.openSession();
 		session.clear();
 		Transaction trans=session.beginTransaction();
-		Query query=session.createQuery("from Orders as orders order by orders.orderTime desc where userId='"+user.getUserId()+"'");
+		Query query=session.createQuery("from Orders as orders where orders.users.userId='"+user.getUserId()+"' order by orders.orderTime desc");
 		list=query.list();
 		trans.commit();
 		session.close();

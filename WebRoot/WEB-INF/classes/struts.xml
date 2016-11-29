@@ -119,5 +119,25 @@
 		<action name="getgoodscount" class="OrderAction" method="getGoodsCount">
 			<result name="showgoodscount">/showgoodscount.jsp</result>
 		</action>
+		
+		<!-- 显示用户 -->
+		<action name="showusers" class="UserAction" method="showUsers">
+			<result name="showusers" >/usermanage.jsp</result>
+		</action>
+		
+		<!-- 删除用户 -->
+		<action name="deleteuser" class="UserAction" method="deleteUser">
+			<result name="showusers" type="redirectAction">showusers</result>
+		</action>
+		
+		<!-- 显示用户消费查询页面 -->
+		<action name="showquerypage" class="UserAction" method="showQueryPage">
+			<result name="showquerypage">/showquerypage.jsp</result>
+		</action>
+		
+		<!-- 消费情况 -->
+		<action name="expensecondition" class="OrderAction" method="queryExpCon">
+			<result name="expensecondition">/expensecondition.jsp</result>
+		</action>
 	</package>
 </struts>    

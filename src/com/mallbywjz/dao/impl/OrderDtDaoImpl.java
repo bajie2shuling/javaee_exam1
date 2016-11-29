@@ -9,6 +9,7 @@ import org.hibernate.Transaction;
 
 import com.mallbywjz.dao.OrderDtDao;
 import com.mallbywjz.entity.Orderdetials;
+import com.mallbywjz.entity.Users;
 
 public class OrderDtDaoImpl implements OrderDtDao {
 
@@ -58,6 +59,40 @@ public class OrderDtDaoImpl implements OrderDtDao {
 		count=(Long) list.get(0);
 		goodsCount=(int) count;
 		return goodsCount;
+	}
+
+	@Override
+	public int getGoodsCountByTime(String time, Users user) {
+		// TODO Auto-generated method stub
+		List list=null;
+		int goodsCount=0;
+		long count=0;
+		Session session=sessionFactory.openSession();
+		session.clear();
+		Transaction trans=session.beginTransaction();
+		Query query=session.createQuery("select sum(odt.goodsCount) as count from Orderdetials as odt where odt.orders.users.userId='"+user.getUserId()+"' and odt.orders.orderTime like '%"+time+"%' group by odt.orders.users.userId");
+		list=query.list();
+		trans.commit();
+		session.close();
+		count=(Long) list.get(0);
+		goodsCount=(int) count;
+		return goodsCount;
+	}
+
+	@Override
+	public double getGoodsPriceByTime(String time, Users user) {
+		// TODO Auto-generated method stub
+		List list=null;
+		double totalPrice;
+		Session session=sessionFactory.openSession();
+		session.clear();
+		Transaction trans=session.beginTransaction();
+		Query query=session.createQuery("select sum(odt.orders.orderTotalPrice) as totalprice from Orderdetials as odt where odt.orders.users.userId='"+user.getUserId()+"' and odt.orders.orderTime like '%"+time+"%' group by odt.orders.users.userId");
+		list=query.list();
+		trans.commit();
+		session.close();
+		totalPrice= (Double) list.get(0);
+		return totalPrice;
 	}
 
 }

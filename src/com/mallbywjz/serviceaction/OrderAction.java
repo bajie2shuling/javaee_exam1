@@ -25,10 +25,13 @@ public class OrderAction extends ActionSupport implements RequestAware,SessionAw
 
 	private Orders orders;
 	private Goods goods;
+	private Users user;
 	private int oid;//订单编号
+	private String time;
 	OrderDtBiz orderDtBiz;
 	OrdersBiz ordersBiz;
 	GoodsBiz goodsBiz;
+	
 	
 	Map<String, Object> session;
 	Map<String, Object> request;
@@ -47,11 +50,25 @@ public class OrderAction extends ActionSupport implements RequestAware,SessionAw
 	public void setGoods(Goods goods) {
 		this.goods = goods;
 	}
+	
+	public Users getUser() {
+		return user;
+	}
+	public void setUser(Users user) {
+		this.user = user;
+	}
 	public int getOid() {
 		return oid;
 	}
 	public void setOid(int oid) {
 		this.oid = oid;
+	}
+	
+	public String getTime() {
+		return time;
+	}
+	public void setTime(String time) {
+		this.time = time;
 	}
 	public OrderDtBiz getOrderDtBiz() {
 		return orderDtBiz;
@@ -115,8 +132,7 @@ public class OrderAction extends ActionSupport implements RequestAware,SessionAw
 	public String userSeeOrders()throws Exception{		//用户查看自己的订单
 		
 		List orderList=null;
-		
-		Users user=new Users();
+
 		user=(Users)session.get("user");
 		
 		orderList=ordersBiz.getOrdersByUser(user);
@@ -159,4 +175,20 @@ public class OrderAction extends ActionSupport implements RequestAware,SessionAw
 		
 		return "showgoodscount";
 	}
+	
+	public String queryExpCon()throws Exception{
+		int count=0;
+		double totalprice=0;
+		String userId=user.getUserId();
+		count=orderDtBiz.getGoodsCountByTime(time, user);
+		totalprice=orderDtBiz.getGoodsPriceByTime(time, user);
+		request.put("count", count);
+		request.put("time", time);
+		request.put("totalprice", totalprice);
+		request.put("userId", userId);
+		
+		return "expensecondition";
+		
+	}
+	
 }

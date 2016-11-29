@@ -48,4 +48,25 @@ public class UserBizImpl implements UserBiz {
 		userDao.modifyInfo(admin);
 	}
 
+
+	@Override
+	public List userBySelect(Users user) {
+		// TODO Auto-generated method stub
+		return userDao.userBySelect(user);
+	}
+
+
+	@Override
+	public void deleteUser(Users user) {
+		// TODO Auto-generated method stub
+		userDao.deleteUser(user);
+	}
+
+
+	@Override
+	public List allUsers() {
+		// TODO Auto-generated method stub
+		return userDao.allUsers();
+	}
+
 }

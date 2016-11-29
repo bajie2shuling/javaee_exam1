@@ -16,7 +16,7 @@
         <property name="goodsPrice" type="java.lang.Double">
             <column name="GoodsPrice" precision="8" />
         </property>
-        <set name="orderdetialses" inverse="true" cascade="delete" lazy="false">
+        <set name="orderdetialses" inverse="true"  lazy="false">
             <key>
                 <column name="GoodsId" />
             </key>
