@@ -10,7 +10,7 @@
             <column name="OrderDetialId" />
             <generator class="native" />
         </id>
-        <many-to-one name="goods" class="com.mallbywjz.entity.Goods" fetch="select" lazy="false">
+        <many-to-one name="goods" class="com.mallbywjz.entity.Goods" fetch="select" lazy="false" >
             <column name="GoodsId" />
         </many-to-one>
         <many-to-one name="orders" class="com.mallbywjz.entity.Orders" fetch="select" cascade="all" lazy="false">

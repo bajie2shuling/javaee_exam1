@@ -165,7 +165,7 @@ public class OrderAction extends ActionSupport implements RequestAware,SessionAw
 		return "showorderdt";
 	}
 	
-	public String getGoodsCount()throws Exception{
+	public String getGoodsCount()throws Exception{		//获得商品销量
 		
 		int goodsCount=0;
 		goods=goodsBiz.GoodsByIdG(goods);
@@ -176,7 +176,7 @@ public class OrderAction extends ActionSupport implements RequestAware,SessionAw
 		return "showgoodscount";
 	}
 	
-	public String queryExpCon()throws Exception{
+	public String queryExpCon()throws Exception{		//获得某个用户一段时间内花的钱以及购买的商品数量
 		int count=0;
 		double totalprice=0;
 		String userId=user.getUserId();
@@ -187,8 +187,7 @@ public class OrderAction extends ActionSupport implements RequestAware,SessionAw
 		request.put("totalprice", totalprice);
 		request.put("userId", userId);
 		
-		return "expensecondition";
-		
+		return "expensecondition";	
 	}
 	
 }

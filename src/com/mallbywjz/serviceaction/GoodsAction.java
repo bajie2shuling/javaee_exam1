@@ -6,6 +6,7 @@ import java.util.Map;
 import org.apache.struts2.interceptor.RequestAware;
 
 import com.mallbywjz.biz.GoodsBiz;
+import com.mallbywjz.biz.OrderDtBiz;
 import com.mallbywjz.entity.Goods;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -15,6 +16,7 @@ public class GoodsAction extends ActionSupport implements RequestAware{
 	
 	private Goods goods;
 	GoodsBiz goodsBiz;
+	OrderDtBiz orderDtBiz;
 	Map<String,Object> request;
 	
 	public Goods getGoods() {
@@ -30,6 +32,12 @@ public class GoodsAction extends ActionSupport implements RequestAware{
 		this.goodsBiz = goodsBiz;
 	}
 	
+	public OrderDtBiz getOrderDtBiz() {
+		return orderDtBiz;
+	}
+	public void setOrderDtBiz(OrderDtBiz orderDtBiz) {
+		this.orderDtBiz = orderDtBiz;
+	}
 	@Override
 	public void setRequest(Map<String, Object> request) {
 		// TODO Auto-generated method stub
@@ -101,6 +109,7 @@ public class GoodsAction extends ActionSupport implements RequestAware{
 	
 	public String deleteGoods()throws Exception{		//É¾³ýÉÌÆ·
 		
+		orderDtBiz.deleteOrderDtByGoods(goods);
 		goodsBiz.deleteGoods(goods);
 		return "goodsmanage";
 	}

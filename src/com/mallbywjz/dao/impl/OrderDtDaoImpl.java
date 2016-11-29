@@ -8,6 +8,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
 import com.mallbywjz.dao.OrderDtDao;
+import com.mallbywjz.entity.Goods;
 import com.mallbywjz.entity.Orderdetials;
 import com.mallbywjz.entity.Users;
 
@@ -93,6 +94,18 @@ public class OrderDtDaoImpl implements OrderDtDao {
 		session.close();
 		totalPrice= (Double) list.get(0);
 		return totalPrice;
+	}
+
+	@Override
+	public void deleteOrderDtByGoods(Goods goods) {
+		// TODO Auto-generated method stub
+		Session session=sessionFactory.openSession();
+		session.clear();
+		Transaction trans=session.beginTransaction();
+		Query query=session.createQuery("delete from Orderdetials as odt where odt.goods.goodsId='"+goods.getGoodsId()+"'");
+		query.executeUpdate();
+		trans.commit();
+		session.close();
 	}
 
 }

@@ -80,6 +80,9 @@
 		<property name="goodsBiz">
 			<ref bean="GoodsBiz"/>
 		</property>
+		<property name="orderDtBiz">
+			<ref bean="OrderDtBiz"/>
+		</property>
 	</bean>
 	
 <!-- ShopCar -->
