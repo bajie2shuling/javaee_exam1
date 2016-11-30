@@ -43,5 +43,11 @@ public class OrdersBizImpl implements OrdersBiz {
 		return ordersDao.getOrdersByUser(user);
 	}
 
+	@Override
+	public void deleteOrderByUser(Users user) {
+		// TODO Auto-generated method stub
+		ordersDao.deleteOrderByUser(user);
+	}
+
 
 }

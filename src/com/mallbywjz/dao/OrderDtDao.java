@@ -13,4 +13,5 @@ public interface OrderDtDao {
 	public int getGoodsCountByTime(String time,Users user);//统计某顾客一段时间内购买的商品数量
 	public double getGoodsPriceByTime(String time,Users user);//统计某顾客一段时间内购买的商品所花的价钱
 	public void deleteOrderDtByGoods(Goods goods);//根据商品删除订单细节
+	public void deleteOrderDtByUser(Users user);//根据用户Id删除 订单细节
 }

@@ -61,6 +61,12 @@
 		<property name="userBiz">
 			<ref bean="UserBiz"/>
 		</property>
+		<property name="orderDtBiz">
+			<ref bean="OrderDtBiz"/>
+		</property>
+		<property name="ordersBiz">
+			<ref bean="OrdersBiz"/>
+		</property>
 	</bean>
 
 <!-- Goods -->

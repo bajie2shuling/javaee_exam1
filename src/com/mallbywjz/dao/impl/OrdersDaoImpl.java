@@ -71,5 +71,16 @@ public class OrdersDaoImpl implements OrdersDao {
 		session.close();
 		return list;
 	}
+	@Override
+	public void deleteOrderByUser(Users user) {
+		// TODO Auto-generated method stub
+		Session session=sessionFactory.openSession();
+		session.clear();
+		Transaction trans=session.beginTransaction();
+		Query query=session.createQuery("delete from Orders as od where od.users.userId='"+user.getUserId()+"'");
+		query.executeUpdate();
+		trans.commit();
+		session.close();
+	}
 
 }

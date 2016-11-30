@@ -52,4 +52,10 @@ public class OrderDtBizImpl implements OrderDtBiz {
 		orderDtDao.deleteOrderDtByGoods(goods);
 	}
 
+	@Override
+	public void deleteOrderDtByUser(Users user) {
+		// TODO Auto-generated method stub
+		orderDtDao.deleteOrderDtByUser(user);
+	}
+
 }

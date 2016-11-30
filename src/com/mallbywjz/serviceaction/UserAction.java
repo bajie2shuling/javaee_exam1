@@ -6,6 +6,8 @@ import java.util.Map;
 import org.apache.struts2.interceptor.RequestAware;
 import org.apache.struts2.interceptor.SessionAware;
 
+import com.mallbywjz.biz.OrderDtBiz;
+import com.mallbywjz.biz.OrdersBiz;
 import com.mallbywjz.biz.UserBiz;
 import com.mallbywjz.entity.Admins;
 import com.mallbywjz.entity.Users;
@@ -20,6 +22,8 @@ public class UserAction implements RequestAware, SessionAware {
 	private Users user;
 	private Admins admin;
 	UserBiz userBiz;
+	OrderDtBiz orderDtBiz;
+	OrdersBiz ordersBiz;
 	Map<String,Object> session;
 	Map<String,Object> request;
 	
@@ -30,6 +34,26 @@ public class UserAction implements RequestAware, SessionAware {
 	
 	public UserBiz getUserBiz() {
 		return userBiz;
+	}
+			
+
+	public OrderDtBiz getOrderDtBiz() {
+		return orderDtBiz;
+	}
+
+
+	public void setOrderDtBiz(OrderDtBiz orderDtBiz) {
+		this.orderDtBiz = orderDtBiz;
+	}
+
+
+	public OrdersBiz getOrdersBiz() {
+		return ordersBiz;
+	}
+
+
+	public void setOrdersBiz(OrdersBiz ordersBiz) {
+		this.ordersBiz = ordersBiz;
 	}
 
 
@@ -196,7 +220,10 @@ public class UserAction implements RequestAware, SessionAware {
 		return "showusers";
 	}
 	
-	public String deleteUser()throws Exception{
+	public String deleteUser()throws Exception{//É¾³ýÓÃ»§
+		
+		orderDtBiz.deleteOrderDtByUser(user);
+		ordersBiz.deleteOrderByUser(user);
 		userBiz.deleteUser(user);
 		return "showusers";
 	}

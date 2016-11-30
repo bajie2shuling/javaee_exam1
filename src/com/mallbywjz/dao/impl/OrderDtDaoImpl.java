@@ -108,4 +108,17 @@ public class OrderDtDaoImpl implements OrderDtDao {
 		session.close();
 	}
 
+	@Override
+	public void deleteOrderDtByUser(Users user) {
+		// TODO Auto-generated method stub
+		Session session=sessionFactory.openSession();
+		session.clear();
+		Transaction trans=session.beginTransaction();
+		Query query=session.createSQLQuery("delete  orderDetials from orders left join orderDetials on orderDetials.OrderId=orders.OrderId where orders.userId='"+user.getUserId()+"'");
+		query.executeUpdate();
+		trans.commit();
+		session.close();
+	}
+	
+
 }
