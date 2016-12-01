@@ -8,20 +8,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
   <head> 
     <title>订单细节</title>
+    <link rel="stylesheet" type="text/css" href="css/my.css">
   </head>
   
   <body>
 	<%@taglib prefix="s" uri="/struts-tags"%>			
     <s:if test="#session.admin!=null">
-		<div align="center">
-    	    |<a href="/javaee_exam1/showgoods">商城首页</a>
-	    	|<a href="/javaee_exam1/goodsmanage">商品管理</a>
-	    	|<a href="">用户管理</a>
-	    	|<a href="">订单管理</a>
-	    	|<a href="/javaee_exam1/logout?type=admin">注销</a>
-	    	|
-			<font style="color: red">管理员：${sessionScope.admin.adminId}</font>
-	    </div><hr>
+		<table width="50%" cellspacing="0" cellpadding="3" align="center" style="text-align:center; border:1px #9c2e41 solid;">
+			<tr style="background-color:#9c2e41;">
+	    	    <td><a href="/javaee_exam1/showgoods">商城首页</a>
+		    	<td><a href="/javaee_exam1/goodsmanage">商品管理</a>
+		    	<td><a href="/javaee_exam1/showusers">用户管理</a>
+		    	<td><a href="/javaee_exam1/seeallorders">订单管理</a>
+		    	<td><a href="/javaee_exam1/logout?type=admin">注销</a>
+				<td><marquee><font style="color: #00ff00">管理员：${sessionScope.admin.adminId }</font></marquee></td>
+	   		</tr>
+	   </table><hr>
 	    <table width="60%" cellspacing="0" cellpadding="3" align="center" style="text-align:center; border:1px #9c2e41 solid;">
 	    	<tr style="background-color:#9c2e41;">
 	    		<td colspan="7" align="center">订单详情</td>
@@ -60,13 +62,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	</table>
     </s:if>
     <s:if test="#session.user!=null">
-		<div align="center">
-    	    |<a href="/javaee_exam1/showgoods">商城首页</a>
-	    	|<a href="">我的订单</a>
-	    	|<a href="/javaee_exam1/logout?type=admin">注销</a>
-	    	|
-			<font style="color: red">欢迎您：${sessionScope.user.userId}</font>
-	    </div><hr>
+		<table width="50%" cellspacing="0" cellpadding="3" align="center" style="text-align:center; border:1px #9c2e41 solid;">
+			<tr style="background-color:#9c2e41;">
+	    	    <td><a href="/javaee_exam1/showgoods">商城首页</a></td>
+		    	<td><a href="/javaee_exam1/userseeorders">我的订单</a></td>
+		    	<td><a href="/javaee_exam1/logout?type=user">注销</a></td>
+		    	<td><marquee><font style="color: #00ff00">欢迎您：${sessionScope.user.userId}</font></marquee></td>
+	    	</tr>
+	    </table><hr>
 	    <table width="60%" cellspacing="0" cellpadding="3" align="center" style="text-align:center; border:1px #9c2e41 solid;">
 	    	<tr style="background-color:#9c2e41;">
 	    		<td colspan="7" align="center">订单详情</td>

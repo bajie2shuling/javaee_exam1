@@ -4,17 +4,18 @@
 <html>
   <head>
     <title>个人信息修改</title>
+    <link rel="stylesheet" type="text/css" href="css/my.css">
   </head>
   
   <body>
      <%@taglib prefix="s" uri="/struts-tags"%>
     <s:if test="#parameters.role[0]=='user'">
-    	<div align="center">
-	    	|<a href="/javaee_exam1/showgoods">商城首页</a>
-	    	|<a href="login.jsp?role=admin">管理员登录</a>
-	    	|<a href="register.jsp?role=admin">管理员注册</a>
-	    	|
-    	</div><hr>
+    	<table width="50%" cellspacing="0" cellpadding="3" align="center" style="text-align:center; border:1px #9c2e41 solid;">
+	    	<tr style="background-color:#9c2e41;">	
+		    	<td><a href="/javaee_exam1/showgoods">商城首页</a></td>
+		    	<td><marquee><font style="color: #00ff00">欢迎您：${sessionScope.user.userId}</font></marquee></td>
+	    	</tr>
+    	</table><hr>
     	
     	<div align="center">
 	    	<form action="modifyinfo?type=user" method="post" >
@@ -50,12 +51,12 @@
 	    </div>
     </s:if>
     <s:if test="#parameters.role[0]=='admin'">
-	    <div align="center">
-		    |<a href="/javaee_exam1/showgoods">商城首页</a>
-		    |<a href="login.jsp?role=user">用户登录</a>
-		    |<a href="register.jsp?role=user">用户注册</a>
-		    |
-	    </div><hr>
+	    <table width="50%" cellspacing="0" cellpadding="3" align="center" style="text-align:center; border:1px #9c2e41 solid;">
+	    	<tr style="background-color:#9c2e41;">	
+			    <td><a href="/javaee_exam1/showgoods">商城首页</a></td>
+			    <td><marquee><font style="color: #00ff00">管理员：${sessionScope.admin.adminId }</font></marquee></td>
+	   		</tr>
+	    </table><hr>
 	    
     	
         <div align="center">
